@@ -1,0 +1,29 @@
+/* color scheme sourced from http://khroma.co/generator/ */
+:root {
+    --akaroa: #D9C7B6;
+    --cloud-burst: #212853;
+    --orange: #ff7c00;
+    --gin: #e0eae4;
+    --borderRadius: 5px;
+}
+
+.custom-card {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    background-color: var(--akaroa);
+    color: var(--cloud-burst);
+}
+
+.option-list {
+    list-style-type:decimal;
+    list-style-position: inside;
+}
+
+.option-list:hover {
+    text-shadow: 3px 3px 5px var(--orange);
+}
+
+/* li {
+    list-style-type:decimal;
+    list-style-position: inside;
+} */
