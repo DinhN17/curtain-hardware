@@ -413,113 +413,113 @@ function renderQuiz(question) {
 // };
 
 function init() {
-    renderFirstGreeting();
+    // renderFirstGreeting();
 };
 
 //catch clicking on button at card footer
-cardFooter.on('click', function (event) {
-    var element = event.target;
-    var li = $('<li>');
-    if (element.matches("button") === true) {
-        switch (element.textContent) {
-            case "Start":
-                // get a patch of questions from bank
-                questionPatch = curtainHardwareScenario.inputQuestions;
-                // render the first question of the quiz
-                questionIndex = 0;
-                console.log(questionPatch);
-                renderQuiz(questionPatch[questionIndex]);
+// cardFooter.on('click', function (event) {
+//     var element = event.target;
+//     var li = $('<li>');
+//     if (element.matches("button") === true) {
+//         switch (element.textContent) {
+//             case "Start":
+//                 // get a patch of questions from bank
+//                 questionPatch = curtainHardwareScenario.inputQuestions;
+//                 // render the first question of the quiz
+//                 questionIndex = 0;
+//                 console.log(questionPatch);
+//                 renderQuiz(questionPatch[questionIndex]);
 
-                break;
+//                 break;
 
-            case "Next":
-                // catch Next button to save result to localstorage.
-                answerTable.saveAnswer("Input"+questionIndex, cardBody.children().eq(1).val());
+//             case "Next":
+//                 // catch Next button to save result to localstorage.
+//                 answerTable.saveAnswer("Input"+questionIndex, cardBody.children().eq(1).val());
                 
-                li.text(cardBody.children().eq(1).val());
-                li.addClass('option-list');
-                resultEl.append(li);
+//                 li.text(cardBody.children().eq(1).val());
+//                 li.addClass('option-list');
+//                 resultEl.append(li);
 
-                questionIndex++;
-                if (questionIndex < questionPatch.length) {
-                    renderQuiz(questionPatch[questionIndex]);            
-                };
-                break;
+//                 questionIndex++;
+//                 if (questionIndex < questionPatch.length) {
+//                     renderQuiz(questionPatch[questionIndex]);            
+//                 };
+//                 break;
 
-            case "Back":
-                // catch Go Back button to go to the previous question.
-                if (questionIndex > 0) {
-                    resultEl.children(':last-child').remove();
-                    questionIndex--;
-                    renderQuiz(questionPatch[questionIndex]);
-                } else {
-                    renderFirstGreeting();
-                };
-                break;
+//             case "Back":
+//                 // catch Go Back button to go to the previous question.
+//                 if (questionIndex > 0) {
+//                     resultEl.children(':last-child').remove();
+//                     questionIndex--;
+//                     renderQuiz(questionPatch[questionIndex]);
+//                 } else {
+//                     renderFirstGreeting();
+//                 };
+//                 break;
 
-            // case "Clear Highscores":
-            //     // catch Clear Highscores button to clear all of result in local storage.
-            //     scoreTable.clearAll();
-            //     renderHighscores();
-            //     break;
+//             // case "Clear Highscores":
+//             //     // catch Clear Highscores button to clear all of result in local storage.
+//             //     scoreTable.clearAll();
+//             //     renderHighscores();
+//             //     break;
         
-            default:
-                break;
-        };   
-    };
-});
+//             default:
+//                 break;
+//         };   
+//     };
+// });
 
 // catch click on options in card-body to make choice
-cardBody.on('click', function (event) {
-    var element = event.target;
-    var li = $('<li>');
-    if (element.matches("li") === true) {
+// cardBody.on('click', function (event) {
+//     var element = event.target;
+//     var li = $('<li>');
+//     if (element.matches("li") === true) {
         
-        switch (element.textContent) {
-            case "Single":
-                // get a patch of questions from bank
-                questionPatch = curtainHardwareScenario.SingleCurtainQuestions;
-                // render the first question of the quiz
-                questionIndex = 0;
-                li.text(element.textContent);
-                li.addClass('option-list');
-                resultEl.append(li);
-                renderQuiz(questionPatch[questionIndex]);
+//         switch (element.textContent) {
+//             case "Single":
+//                 // get a patch of questions from bank
+//                 questionPatch = curtainHardwareScenario.SingleCurtainQuestions;
+//                 // render the first question of the quiz
+//                 questionIndex = 0;
+//                 li.text(element.textContent);
+//                 li.addClass('option-list');
+//                 resultEl.append(li);
+//                 renderQuiz(questionPatch[questionIndex]);
 
-                break;
+//                 break;
 
-            case "Double":
-                // get a patch of questions from bank
-                questionPatch = curtainHardwareScenario.DoubleCurtainQuestions;
-                // render the first question of the quiz
-                questionIndex = 0;
-                li.text(element.textContent);
-                li.addClass('option-list');
-                resultEl.append(li);
-                renderQuiz(questionPatch[questionIndex]);
-                break;
+//             case "Double":
+//                 // get a patch of questions from bank
+//                 questionPatch = curtainHardwareScenario.DoubleCurtainQuestions;
+//                 // render the first question of the quiz
+//                 questionIndex = 0;
+//                 li.text(element.textContent);
+//                 li.addClass('option-list');
+//                 resultEl.append(li);
+//                 renderQuiz(questionPatch[questionIndex]);
+//                 break;
 
-            // case "Clear Highscores":
-            //     // catch Clear Highscores button to clear all of result in local storage.
-            //     scoreTable.clearAll();
-            //     renderHighscores();
-            //     break;
+//             // case "Clear Highscores":
+//             //     // catch Clear Highscores button to clear all of result in local storage.
+//             //     scoreTable.clearAll();
+//             //     renderHighscores();
+//             //     break;
         
-            default:
-                li.text(element.textContent);
-                li.addClass('option-list');
-                resultEl.append(li);            
-                // check if there is next question, render it, if not, render result.
-                questionIndex++;
-                if (questionIndex < questionPatch.length) {
-                    renderQuiz(questionPatch[questionIndex]);            
-                } else {
-                    //renderSubmitResult();
-                };
-                break;
-        };   
-    };    
-});
+//             default:
+//                 li.text(element.textContent);
+//                 li.addClass('option-list');
+//                 resultEl.append(li);            
+//                 // check if there is next question, render it, if not, render result.
+//                 questionIndex++;
+//                 if (questionIndex < questionPatch.length) {
+//                     renderQuiz(questionPatch[questionIndex]);            
+//                 } else {
+//                     //renderSubmitResult();
+//                 };
+//                 break;
+//         };   
+//     };    
+// });
 
 // // catch click on View Highscores
 // viewHighscores.addEventListener("click", function (event) {
